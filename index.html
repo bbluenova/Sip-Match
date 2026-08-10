@@ -1,29 +1,39 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
+    <meta charset="UTF-8">
+
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#ffdf63">
+
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="default">
 
     <meta name="description"
           content="Sip & Match! Pick the drink we're looking for and test your matching skills.">
 
     <title>Sip & Match! 🥤</title>
 
-    <!-- YOUR CSS -->
-
-    <link rel="stylesheet"
-          href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-
 <main class="game">
-
 
     <!-- DECORATIONS -->
 
@@ -41,7 +51,7 @@
             🥤
         </div>
 
-        <div>
+        <div class="header-text">
 
             <h1>
                 Sip & Match!
@@ -56,10 +66,9 @@
     </header>
 
 
-    <!-- GAME INFO -->
+    <!-- GAME STATS -->
 
     <section class="stats">
-
 
         <div class="stat score-card">
 
@@ -144,7 +153,6 @@
 
         </div>
 
-
     </section>
 
 
@@ -152,40 +160,32 @@
 
     <section class="target-area">
 
-
         <div class="target-label">
             🎯 YOUR ORDER
         </div>
 
-
         <div class="target">
-
 
             <span class="target-cup">
                 🥤
             </span>
 
-
             <h2 id="targetText">
                 FIND THE RED DRINK! ❤️
             </h2>
-
 
             <span class="target-sparkle">
                 ✨
             </span>
 
-
         </div>
-
 
     </section>
 
 
-    <!-- DRINK COUNTER -->
+    <!-- DRINK AREA -->
 
     <section class="drink-area">
-
 
         <div class="area-title">
 
@@ -208,10 +208,9 @@
             class="drinks"
             id="drinks">
 
-            <!-- JS WILL ADD DRINKS HERE -->
+            <!-- DRINKS ARE CREATED BY JAVASCRIPT -->
 
         </div>
-
 
     </section>
 
@@ -220,16 +219,17 @@
 
     <div
         class="message"
-        id="message">
+        id="message"
+        aria-live="polite">
     </div>
 
 
-    <!-- BUTTONS -->
+    <!-- GAME CONTROLS -->
 
     <div class="controls">
 
-
         <button
+            type="button"
             class="start-btn"
             id="startBtn"
             onclick="startGame()">
@@ -240,6 +240,7 @@
 
 
         <button
+            type="button"
             class="restart-btn hidden"
             id="restartBtn"
             onclick="startGame()">
@@ -247,7 +248,6 @@
             🔄 Play Again
 
         </button>
-
 
     </div>
 
@@ -260,7 +260,9 @@
             🍓
         </span>
 
-        Match it!
+        <span>
+            Match it!
+        </span>
 
         <span>
             🍋
@@ -275,7 +277,6 @@
 <!-- GAME JAVASCRIPT -->
 
 <script src="script.js"></script>
-
 
 </body>
 
