@@ -1,11 +1,19 @@
+```css
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
+    width: 100%;
     min-height: 100vh;
+
     font-family: "Trebuchet MS", Arial, sans-serif;
 
     background:
@@ -19,9 +27,10 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 25px;
-}
+    padding: 20px;
 
+    overflow-x: hidden;
+}
 
 /* =========================
    MAIN GAME
@@ -34,19 +43,18 @@ body {
     background: #fffdf2;
 
     border: 5px solid #ffc928;
-    border-radius: 45px;
+    border-radius: 42px;
 
-    padding: 35px;
+    padding: 32px;
 
     position: relative;
 
     box-shadow:
-        0 18px 0 #d99a18,
-        0 30px 55px rgba(80, 60, 0, 0.2);
+        0 15px 0 #d99a18,
+        0 25px 50px rgba(80, 60, 0, 0.2);
 
     overflow: hidden;
 }
-
 
 /* =========================
    DECORATIONS
@@ -55,134 +63,151 @@ body {
 .decor {
     position: absolute;
 
-    font-size: 34px;
+    font-size: 32px;
 
     pointer-events: none;
 
     animation: floating 3s ease-in-out infinite;
+
+    z-index: 0;
 }
 
 .decor1 {
-    top: 25px;
-    right: 35px;
+    top: 22px;
+    right: 28px;
 }
 
 .decor2 {
-    bottom: 90px;
-    left: 25px;
+    bottom: 85px;
+    left: 20px;
+
     animation-delay: 0.5s;
 }
 
 .decor3 {
-    top: 120px;
-    left: 28px;
+    top: 115px;
+    left: 25px;
 
-    font-size: 25px;
+    font-size: 24px;
 
     animation-delay: 1s;
 }
 
 .decor4 {
-    bottom: 30px;
-    right: 35px;
+    bottom: 25px;
+    right: 28px;
 
     animation-delay: 1.5s;
 }
-
 
 /* =========================
    HEADER
 ========================= */
 
 .header {
+    position: relative;
+    z-index: 1;
+
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    gap: 18px;
+    gap: 17px;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
+
+    text-align: left;
 }
 
 .logo {
-    width: 78px;
-    height: 78px;
+    width: 76px;
+    height: 76px;
+
+    flex-shrink: 0;
 
     background: #ffb703;
 
     border: 4px solid #f49b00;
 
-    border-radius: 25px;
+    border-radius: 23px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 45px;
+    font-size: 43px;
 
     transform: rotate(-7deg);
 
     box-shadow:
         0 7px 0 #d98a00;
+
+    animation: logoFloat 2.5s ease-in-out infinite;
 }
 
 .header h1 {
-    font-size: 44px;
+    font-size: 43px;
 
     color: #ff7654;
 
     letter-spacing: 1px;
+
+    line-height: 1.1;
 
     text-shadow:
         2px 3px 0 #ffd9a8;
 }
 
 .header p {
-    margin-top: 6px;
+    margin-top: 7px;
 
     color: #806a28;
 
-    font-size: 15px;
+    font-size: 14px;
 
     font-weight: bold;
 }
-
 
 /* =========================
    STATS
 ========================= */
 
 .stats {
+    position: relative;
+    z-index: 1;
+
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
 
-    gap: 13px;
+    gap: 12px;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .stat {
-    min-height: 72px;
+    min-height: 70px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    gap: 9px;
 
-    padding: 12px;
+    padding: 10px;
 
-    border-radius: 22px;
+    border-radius: 20px;
 
     border: 3px solid #ffd34e;
 
     box-shadow:
         0 5px 0 #e3b72f;
 
-    transition: 0.2s;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .stat:hover {
@@ -195,24 +220,30 @@ body {
 
 .lives-card {
     background: #ffd8dc;
+
     border-color: #ff9eaa;
+
     box-shadow: 0 5px 0 #e47d89;
 }
 
 .time-card {
     background: #cfefff;
+
     border-color: #83d4f4;
+
     box-shadow: 0 5px 0 #58b5d8;
 }
 
 .streak-card {
     background: #ffd9ad;
+
     border-color: #ffb15c;
+
     box-shadow: 0 5px 0 #e78b2d;
 }
 
 .stat-icon {
-    font-size: 27px;
+    font-size: 25px;
 }
 
 .stat div {
@@ -226,7 +257,7 @@ body {
 .stat small {
     color: #806a28;
 
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: bold;
 
@@ -241,13 +272,15 @@ body {
     margin-top: 2px;
 }
 
-
 /* =========================
-   TARGET AREA
+   TARGET
 ========================= */
 
 .target-area {
-    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 28px;
 }
 
 .target-label {
@@ -257,13 +290,13 @@ body {
 
     color: white;
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: bold;
 
     letter-spacing: 1px;
 
-    padding: 7px 18px;
+    padding: 7px 17px;
 
     border-radius: 30px;
 
@@ -278,7 +311,7 @@ body {
 }
 
 .target {
-    min-height: 100px;
+    min-height: 98px;
 
     background:
         linear-gradient(
@@ -289,9 +322,9 @@ body {
 
     border: 4px dashed #fffdf2;
 
-    border-radius: 28px;
+    border-radius: 27px;
 
-    padding: 22px 30px;
+    padding: 20px 25px;
 
     display: flex;
 
@@ -299,7 +332,7 @@ body {
 
     justify-content: center;
 
-    gap: 15px;
+    gap: 13px;
 
     box-shadow:
         0 8px 0 #df971f;
@@ -308,36 +341,40 @@ body {
 .target h2 {
     color: #5b4200;
 
-    font-size: 25px;
+    font-size: 24px;
 
     letter-spacing: 0.5px;
+
+    text-align: center;
 }
 
 .target-cup {
-    font-size: 38px;
+    font-size: 36px;
 
     animation: cupBounce 1.5s infinite;
 }
 
 .target-sparkle {
-    font-size: 25px;
+    font-size: 23px;
 
     animation: sparkle 1.2s infinite;
 }
-
 
 /* =========================
    DRINK AREA
 ========================= */
 
 .drink-area {
+    position: relative;
+    z-index: 1;
+
     background: #fff3c4;
 
     border: 4px solid #ffe083;
 
-    border-radius: 32px;
+    border-radius: 30px;
 
-    padding: 22px;
+    padding: 20px;
 
     box-shadow:
         inset 0 0 25px rgba(255, 203, 65, 0.12);
@@ -349,21 +386,22 @@ body {
     justify-content: center;
     align-items: center;
 
-    gap: 12px;
+    gap: 10px;
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .area-title h3 {
     color: #795b00;
 
-    font-size: 21px;
+    font-size: 20px;
+
+    text-align: center;
 }
 
 .area-title span {
-    font-size: 23px;
+    font-size: 22px;
 }
-
 
 /* =========================
    DRINK GRID
@@ -374,24 +412,25 @@ body {
 
     grid-template-columns: repeat(5, 1fr);
 
-    gap: 15px;
+    gap: 13px;
 }
-
 
 /* =========================
    DRINK BUTTONS
 ========================= */
 
 .drink {
-    min-height: 125px;
+    min-height: 120px;
+
+    width: 100%;
 
     border: 4px solid transparent;
 
-    border-radius: 27px;
+    border-radius: 24px;
 
     background: #fff;
 
-    font-size: 48px;
+    font-size: 46px;
 
     cursor: pointer;
 
@@ -402,18 +441,19 @@ body {
     justify-content: center;
     align-items: center;
 
+    -webkit-tap-highlight-color: transparent;
+
+    user-select: none;
+
     box-shadow:
         0 7px 0 rgba(120, 100, 30, 0.18),
         0 10px 18px rgba(100, 80, 20, 0.1);
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        filter 0.2s ease;
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        filter 0.18s ease;
 }
-
-
-/* Individual pastel cards */
 
 .drink:nth-child(1) {
     background: #ffe0e5;
@@ -465,50 +505,40 @@ body {
     border-color: #ffbd91;
 }
 
-
-/* Decorative sparkle */
-
 .drink::after {
     content: "✦";
 
     position: absolute;
 
-    top: 8px;
-    right: 10px;
+    top: 7px;
+    right: 9px;
 
     color: rgba(255, 180, 0, 0.7);
 
-    font-size: 14px;
+    font-size: 13px;
 }
-
-
-/* Hover */
 
 .drink:hover {
     transform:
-        translateY(-9px)
+        translateY(-7px)
         rotate(2deg)
-        scale(1.03);
+        scale(1.02);
 
     filter: brightness(1.04);
 
     box-shadow:
-        0 13px 0 rgba(120, 100, 30, 0.15),
-        0 18px 25px rgba(100, 80, 20, 0.16);
+        0 12px 0 rgba(120, 100, 30, 0.15),
+        0 16px 24px rgba(100, 80, 20, 0.16);
 }
-
-
-/* Click */
 
 .drink:active {
     transform:
-        translateY(4px)
+        translateY(3px)
         scale(0.94);
 
     box-shadow:
         0 3px 0 rgba(120, 100, 30, 0.15);
 }
-
 
 /* =========================
    CORRECT / WRONG
@@ -537,19 +567,18 @@ body {
         0 7px 0 #db5e5e !important;
 }
 
-
 /* =========================
    MESSAGE
 ========================= */
 
 .message {
-    min-height: 42px;
+    min-height: 40px;
 
-    margin-top: 20px;
+    margin-top: 18px;
 
     color: #ff7b00;
 
-    font-size: 20px;
+    font-size: 19px;
 
     font-weight: bold;
 
@@ -557,24 +586,25 @@ body {
 
     align-items: center;
     justify-content: center;
+
+    text-align: center;
 }
 
-
 /* =========================
-   CONTROLS
+   BUTTONS
 ========================= */
 
 .controls {
     text-align: center;
 
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .start-btn,
 .restart-btn {
     border: none;
 
-    padding: 15px 32px;
+    padding: 14px 30px;
 
     border-radius: 50px;
 
@@ -597,19 +627,16 @@ body {
         0 7px 0 #d78d00,
         0 10px 20px rgba(190, 130, 0, 0.18);
 
-    transition: 0.2s;
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
 }
 
 .start-btn:hover,
 .restart-btn:hover {
     transform: translateY(-4px);
 
-    background:
-        linear-gradient(
-            135deg,
-            #ffe16a,
-            #ffbc24
-        );
+    filter: brightness(1.08);
 }
 
 .start-btn:active,
@@ -620,17 +647,16 @@ body {
         0 3px 0 #d78d00;
 }
 
-
 /* =========================
    FOOTER
 ========================= */
 
 footer {
-    margin-top: 25px;
+    margin-top: 22px;
 
     color: #a18128;
 
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: bold;
 
@@ -640,13 +666,12 @@ footer {
 
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 }
 
 footer span {
-    font-size: 18px;
+    font-size: 17px;
 }
-
 
 /* =========================
    HIDDEN
@@ -656,13 +681,11 @@ footer span {
     display: none !important;
 }
 
-
 /* =========================
    ANIMATIONS
 ========================= */
 
 @keyframes floating {
-
     0%,
     100% {
         transform: translateY(0) rotate(0deg);
@@ -673,9 +696,18 @@ footer span {
     }
 }
 
+@keyframes logoFloat {
+    0%,
+    100% {
+        transform: rotate(-7deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-7deg) translateY(-5px);
+    }
+}
 
 @keyframes cupBounce {
-
     0%,
     100% {
         transform: translateY(0);
@@ -686,9 +718,7 @@ footer span {
     }
 }
 
-
 @keyframes sparkle {
-
     0%,
     100% {
         transform: scale(1);
@@ -701,23 +731,17 @@ footer span {
     }
 }
 
-
 @keyframes correctDrink {
-
     0% {
         transform: scale(1);
     }
 
     40% {
-        transform:
-            scale(1.2)
-            rotate(6deg);
+        transform: scale(1.2) rotate(6deg);
     }
 
     70% {
-        transform:
-            scale(1.08)
-            rotate(-4deg);
+        transform: scale(1.08) rotate(-4deg);
     }
 
     100% {
@@ -725,9 +749,7 @@ footer span {
     }
 }
 
-
 @keyframes wrongDrink {
-
     0% {
         transform: translateX(0);
     }
@@ -753,19 +775,30 @@ footer span {
     }
 }
 
-
 /* =========================
    TABLET
 ========================= */
 
 @media (max-width: 750px) {
 
+    body {
+        padding: 12px;
+    }
+
     .game {
-        padding: 25px;
+        max-width: 680px;
+
+        padding: 23px;
+
+        border-radius: 32px;
     }
 
     .header h1 {
-        font-size: 36px;
+        font-size: 35px;
+    }
+
+    .header p {
+        font-size: 13px;
     }
 
     .drinks {
@@ -773,142 +806,350 @@ footer span {
     }
 
     .drink {
-        min-height: 115px;
+        min-height: 110px;
+
+        font-size: 43px;
     }
 }
 
-
 /* =========================
-   MOBILE
+   ANDROID / MOBILE
 ========================= */
 
 @media (max-width: 480px) {
 
     body {
-        padding: 8px;
+        padding: 6px;
+
+        align-items: flex-start;
     }
 
     .game {
-        padding: 18px;
+        width: 100%;
 
-        border-radius: 30px;
+        min-height: calc(100vh - 12px);
 
-        border-width: 4px;
+        padding: 15px;
+
+        border-width: 3px;
+
+        border-radius: 25px;
 
         box-shadow:
-            0 10px 0 #d99a18,
-            0 20px 35px rgba(80, 60, 0, 0.16);
+            0 7px 0 #d99a18,
+            0 15px 30px rgba(80, 60, 0, 0.16);
     }
 
     .decor {
-        font-size: 22px;
+        font-size: 19px;
     }
 
-    .header {
-        gap: 10px;
+    .decor1 {
+        top: 14px;
+        right: 14px;
+    }
 
-        margin-bottom: 22px;
+    .decor2 {
+        bottom: 70px;
+        left: 10px;
+    }
+
+    .decor3 {
+        top: 95px;
+        left: 10px;
+
+        font-size: 17px;
+    }
+
+    .decor4 {
+        bottom: 18px;
+        right: 15px;
+    }
+
+    /* Header */
+
+    .header {
+        gap: 9px;
+
+        margin-bottom: 18px;
+
+        justify-content: flex-start;
     }
 
     .logo {
-        width: 58px;
-        height: 58px;
+        width: 54px;
+        height: 54px;
 
-        font-size: 32px;
+        border-width: 3px;
 
-        border-radius: 18px;
+        border-radius: 16px;
+
+        font-size: 29px;
+
+        box-shadow:
+            0 5px 0 #d98a00;
     }
 
     .header h1 {
-        font-size: 27px;
+        font-size: 25px;
+
+        letter-spacing: 0;
     }
 
     .header p {
-        font-size: 11px;
+        font-size: 10px;
+
+        margin-top: 4px;
     }
+
+    /* Stats */
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
 
-        gap: 9px;
+        gap: 8px;
+
+        margin-bottom: 20px;
     }
 
     .stat {
-        min-height: 62px;
+        min-height: 58px;
 
-        padding: 9px;
+        padding: 8px;
 
-        border-radius: 17px;
+        border-width: 2px;
+
+        border-radius: 15px;
+
+        gap: 7px;
+
+        box-shadow:
+            0 4px 0 #e3b72f;
+    }
+
+    .lives-card {
+        box-shadow: 0 4px 0 #e47d89;
+    }
+
+    .time-card {
+        box-shadow: 0 4px 0 #58b5d8;
+    }
+
+    .streak-card {
+        box-shadow: 0 4px 0 #e78b2d;
     }
 
     .stat-icon {
-        font-size: 22px;
+        font-size: 20px;
+    }
+
+    .stat small {
+        font-size: 8px;
     }
 
     .stat strong {
-        font-size: 17px;
+        font-size: 16px;
+    }
+
+    /* Target */
+
+    .target-area {
+        margin-bottom: 20px;
+    }
+
+    .target-label {
+        font-size: 9px;
+
+        padding: 6px 13px;
+
+        margin-bottom: -10px;
     }
 
     .target {
-        padding: 18px 10px;
+        min-height: 76px;
 
-        min-height: 85px;
+        padding: 14px 8px;
+
+        gap: 8px;
+
+        border-width: 3px;
+
+        border-radius: 21px;
+
+        box-shadow:
+            0 6px 0 #df971f;
     }
 
     .target h2 {
-        font-size: 18px;
+        font-size: 15px;
+
+        line-height: 1.2;
     }
 
     .target-cup {
-        font-size: 28px;
+        font-size: 25px;
     }
 
     .target-sparkle {
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    .drink-area {
-        padding: 14px;
+    /* Drinks */
 
-        border-radius: 24px;
+    .drink-area {
+        padding: 12px;
+
+        border-width: 3px;
+
+        border-radius: 21px;
+    }
+
+    .area-title {
+        gap: 7px;
+
+        margin-bottom: 13px;
     }
 
     .area-title h3 {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .area-title span {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .drinks {
         grid-template-columns: repeat(2, 1fr);
 
-        gap: 10px;
+        gap: 8px;
     }
 
     .drink {
-        min-height: 100px;
+        min-height: 88px;
 
-        font-size: 38px;
+        font-size: 34px;
 
-        border-radius: 20px;
+        border-width: 3px;
+
+        border-radius: 17px;
+
+        box-shadow:
+            0 5px 0 rgba(120, 100, 30, 0.18),
+            0 7px 12px rgba(100, 80, 20, 0.1);
     }
 
+    .drink::after {
+        top: 5px;
+        right: 7px;
+
+        font-size: 10px;
+    }
+
+    .drink:hover {
+        transform: translateY(-4px) scale(1.01);
+
+        box-shadow:
+            0 8px 0 rgba(120, 100, 30, 0.15),
+            0 12px 17px rgba(100, 80, 20, 0.14);
+    }
+
+    /* Message */
+
     .message {
-        font-size: 16px;
+        min-height: 34px;
+
+        margin-top: 12px;
+
+        font-size: 14px;
+    }
+
+    /* Buttons */
+
+    .controls {
+        margin-top: 2px;
     }
 
     .start-btn,
     .restart-btn {
-        font-size: 16px;
+        width: 100%;
 
-        padding: 13px 25px;
+        max-width: 260px;
+
+        padding: 12px 20px;
+
+        font-size: 15px;
+
+        box-shadow:
+            0 5px 0 #d78d00,
+            0 8px 15px rgba(190, 130, 0, 0.18);
     }
+
+    /* Footer */
 
     footer {
-        margin-top: 18px;
+        margin-top: 15px;
 
-        font-size: 11px;
+        font-size: 10px;
+
+        gap: 6px;
+    }
+
+    footer span {
+        font-size: 14px;
     }
 }
+
+/* =========================
+   VERY SMALL ANDROID
+========================= */
+
+@media (max-width: 360px) {
+
+    .game {
+        padding: 12px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 9px;
+    }
+
+    .logo {
+        width: 48px;
+        height: 48px;
+
+        font-size: 25px;
+    }
+
+    .stat {
+        min-height: 53px;
+
+        padding: 6px;
+    }
+
+    .stat-icon {
+        font-size: 17px;
+    }
+
+    .stat strong {
+        font-size: 14px;
+    }
+
+    .target h2 {
+        font-size: 13px;
+    }
+
+    .drink {
+        min-height: 78px;
+
+        font-size: 30px;
+    }
+
+    .area-title h3 {
+        font-size: 14px;
+    }
+}
+```
