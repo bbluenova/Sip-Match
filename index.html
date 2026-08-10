@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sip & Match 🥤</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <!-- DECORATIONS -->
+
+        <div class="decor decor1">🍋</div>
+        <div class="decor decor2">🍓</div>
+        <div class="decor decor3">✨</div>
+        <div class="decor decor4">🍒</div>
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="logo">
+                🥤
+            </div>
+
+            <div>
+                <h1>Sip & Match!</h1>
+
+                <p>
+                    Pick the drink we're looking for ✨
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- GAME INFO -->
+
+        <section class="stats">
+
+            <div class="stat score-card">
+
+                <span class="stat-icon">⭐</span>
+
+                <div>
+                    <small>SCORE</small>
+                    <strong id="score">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat lives-card">
+
+                <span class="stat-icon">❤️</span>
+
+                <div>
+                    <small>LIVES</small>
+                    <strong id="lives">3</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat time-card">
+
+                <span class="stat-icon">⏱️</span>
+
+                <div>
+                    <small>TIME</small>
+                    <strong id="time">30</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat streak-card">
+
+                <span class="stat-icon">🔥</span>
+
+                <div>
+                    <small>STREAK</small>
+                    <strong id="streak">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TARGET -->
+
+        <section class="target-area">
+
+            <div class="target-label">
+                🎯 YOUR ORDER
+            </div>
+
+            <div class="target">
+
+                <span class="target-cup">
+                    🥤
+                </span>
+
+                <h2 id="targetText">
+                    FIND THE RED DRINK! ❤️
+                </h2>
+
+                <span class="target-sparkle">
+                    ✨
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- DRINK COUNTER -->
+
+        <section class="drink-area">
+
+            <div class="area-title">
+
+                <span>🥤</span>
+
+                <h3>Choose Your Drink</h3>
+
+                <span>🍹</span>
+
+            </div>
+
+
+            <div
+                class="drinks"
+                id="drinks">
+
+                <!-- JS WILL ADD DRINKS HERE -->
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+
+        <div
+            class="message"
+            id="message">
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="controls">
+
+            <button
+                class="start-btn"
+                id="startBtn"
+                onclick="startGame()">
+
+                🥤 Start Sipping!
+
+            </button>
+
+
+            <button
+                class="restart-btn hidden"
+                id="restartBtn"
+                onclick="startGame()">
+
+                🔄 Play Again
+
+            </button>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>🍓</span>
+            Match it!
+            <span>🍋</span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
