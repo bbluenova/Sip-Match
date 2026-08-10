@@ -1,199 +1,297 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
-    <title>Sip & Match 🥤</title>  
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Sip & Match! Pick the drink we're looking for and test your matching skills.">
+
+    <title>Sip & Match! 🥤</title>
+
+
+    <!-- =========================
+         GOOGLE ADSENSE
+         ========================= -->
+
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1915016897238453"
+        crossorigin="anonymous">
+    </script>
+
+
+    <!-- YOUR CSS -->
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
+
 <body>
 
-    <main class="game">
 
-        <!-- DECORATIONS -->
-
-        <div class="decor decor1">🍋</div>
-        <div class="decor decor2">🍓</div>
-        <div class="decor decor3">✨</div>
-        <div class="decor decor4">🍒</div>
+<main class="game">
 
 
-        <!-- HEADER -->
+    <!-- DECORATIONS -->
 
-        <header class="header">
+    <div class="decor decor1">🍋</div>
+    <div class="decor decor2">🍓</div>
+    <div class="decor decor3">✨</div>
+    <div class="decor decor4">🍒</div>
 
-            <div class="logo">
-                🥤
-            </div>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+            🥤
+        </div>
+
+        <div>
+
+            <h1>
+                Sip & Match!
+            </h1>
+
+            <p>
+                Pick the drink we're looking for ✨
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- GAME INFO -->
+
+    <section class="stats">
+
+
+        <div class="stat score-card">
+
+            <span class="stat-icon">
+                ⭐
+            </span>
 
             <div>
-                <h1>Sip & Match!</h1>
 
-                <p>
-                    Pick the drink we're looking for ✨
-                </p>
-            </div>
+                <small>
+                    SCORE
+                </small>
 
-        </header>
-
-
-        <!-- GAME INFO -->
-
-        <section class="stats">
-
-            <div class="stat score-card">
-
-                <span class="stat-icon">⭐</span>
-
-                <div>
-                    <small>SCORE</small>
-                    <strong id="score">0</strong>
-                </div>
+                <strong id="score">
+                    0
+                </strong>
 
             </div>
 
-
-            <div class="stat lives-card">
-
-                <span class="stat-icon">❤️</span>
-
-                <div>
-                    <small>LIVES</small>
-                    <strong id="lives">3</strong>
-                </div>
-
-            </div>
+        </div>
 
 
-            <div class="stat time-card">
+        <div class="stat lives-card">
 
-                <span class="stat-icon">⏱️</span>
+            <span class="stat-icon">
+                ❤️
+            </span>
 
-                <div>
-                    <small>TIME</small>
-                    <strong id="time">30</strong>
-                </div>
+            <div>
+
+                <small>
+                    LIVES
+                </small>
+
+                <strong id="lives">
+                    3
+                </strong>
 
             </div>
 
-
-            <div class="stat streak-card">
-
-                <span class="stat-icon">🔥</span>
-
-                <div>
-                    <small>STREAK</small>
-                    <strong id="streak">0</strong>
-                </div>
-
-            </div>
-
-        </section>
+        </div>
 
 
-        <!-- TARGET -->
+        <div class="stat time-card">
 
-        <section class="target-area">
+            <span class="stat-icon">
+                ⏱️
+            </span>
 
-            <div class="target-label">
-                🎯 YOUR ORDER
-            </div>
+            <div>
 
-            <div class="target">
+                <small>
+                    TIME
+                </small>
 
-                <span class="target-cup">
-                    🥤
-                </span>
-
-                <h2 id="targetText">
-                    FIND THE RED DRINK! ❤️
-                </h2>
-
-                <span class="target-sparkle">
-                    ✨
-                </span>
+                <strong id="time">
+                    30
+                </strong>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- DRINK COUNTER -->
+        <div class="stat streak-card">
 
-        <section class="drink-area">
+            <span class="stat-icon">
+                🔥
+            </span>
 
-            <div class="area-title">
+            <div>
 
-                <span>🥤</span>
+                <small>
+                    STREAK
+                </small>
 
-                <h3>Choose Your Drink</h3>
-
-                <span>🍹</span>
-
-            </div>
-
-
-            <div
-                class="drinks"
-                id="drinks">
-
-                <!-- JS WILL ADD DRINKS HERE -->
+                <strong id="streak">
+                    0
+                </strong>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- MESSAGE -->
+    </section>
+
+
+    <!-- TARGET -->
+
+    <section class="target-area">
+
+
+        <div class="target-label">
+            🎯 YOUR ORDER
+        </div>
+
+
+        <div class="target">
+
+
+            <span class="target-cup">
+                🥤
+            </span>
+
+
+            <h2 id="targetText">
+                FIND THE RED DRINK! ❤️
+            </h2>
+
+
+            <span class="target-sparkle">
+                ✨
+            </span>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- DRINK COUNTER -->
+
+    <section class="drink-area">
+
+
+        <div class="area-title">
+
+            <span>
+                🥤
+            </span>
+
+            <h3>
+                Choose Your Drink
+            </h3>
+
+            <span>
+                🍹
+            </span>
+
+        </div>
+
 
         <div
-            class="message"
-            id="message">
+            class="drinks"
+            id="drinks">
+
+            <!-- JS WILL ADD DRINKS HERE -->
 
         </div>
 
 
-        <!-- BUTTONS -->
-
-        <div class="controls">
-
-            <button
-                class="start-btn"
-                id="startBtn"
-                onclick="startGame()">
-
-                🥤 Start Sipping!
-
-            </button>
+    </section>
 
 
-            <button
-                class="restart-btn hidden"
-                id="restartBtn"
-                onclick="startGame()">
+    <!-- MESSAGE -->
 
-                🔄 Play Again
-
-            </button>
-
-        </div>
+    <div
+        class="message"
+        id="message">
+    </div>
 
 
-        <!-- FOOTER -->
+    <!-- BUTTONS -->
 
-        <footer>
-
-            <span>🍓</span>
-            Match it!
-            <span>🍋</span>
-
-        </footer>
-
-    </main>
+    <div class="controls">
 
 
-    <script src="script.js"></script>
+        <button
+            class="start-btn"
+            id="startBtn"
+            onclick="startGame()">
+
+            🥤 Start Sipping!
+
+        </button>
+
+
+        <button
+            class="restart-btn hidden"
+            id="restartBtn"
+            onclick="startGame()">
+
+            🔄 Play Again
+
+        </button>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            🍓
+        </span>
+
+        Match it!
+
+        <span>
+            🍋
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+<!-- GAME JAVASCRIPT -->
+
+<script src="script.js"></script>
+
 
 </body>
 
 </html>
+```
